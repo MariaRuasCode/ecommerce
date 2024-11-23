@@ -1,0 +1,21 @@
+meta {
+  name: Criar Usuario
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://localhost:8080/usuarios
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "nome": "Maria Silva",
+    "senha": "securepassword123",
+    "email": "maria.silva@example.com",
+    "endereco": "Rua das Flores, 456"
+  }
+  
+}
