@@ -2,7 +2,7 @@
 CREATE TABLE Usuario (
     id SERIAL PRIMARY KEY,
     nome VARCHAR(100) NOT NULL,
-    senha TEXT NOT NULL, -- Consider hashing passwords
+    senha TEXT NOT NULL, 
     email VARCHAR(150) UNIQUE NOT NULL,
     endereco TEXT
 );
