@@ -1,22 +1,13 @@
-FROM golang:1.21 AS builder
+FROM node:18
 
-WORKDIR /app
+WORKDIR /usr/src/app
 
-COPY go.mod go.sum ./
+COPY package*.json ./
 
-RUN go mod download
+RUN npm install
 
 COPY . .
 
-RUN go build -o main .
-
-FROM gcr.io/distroless/base-debian11
-
-WORKDIR /
-
-COPY --from=builder /app/main .
-
 EXPOSE 8080
 
-# Run the binary
-CMD ["./main"]
+CMD ["npm", "start"]
